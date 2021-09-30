@@ -44,4 +44,44 @@ public class Pokemon {
     public void setElemento(Tipo elemento) {
         this.elemento = elemento;
     }
+
+    public int calcularDano(Pokemon atacante, Pokemon defensor){
+        int ataque = atacante.getAtaque();
+        int dano = ataque;
+        if (atacante.getElemento() == Tipo.FOGO){
+            if (defensor.getElemento() == Tipo.TERRA){
+                dano = ataque * 2;
+                System.out.println("Super efetivo!");
+            }else if (defensor.getElemento() == Tipo.AGUA){
+                dano = ataque/2;
+                System.out.println("Pouco efetivo!");
+            }else{
+                System.out.println("Aguarde");
+            }
+        }
+        if (atacante.getElemento() == Tipo.AGUA){
+            if (defensor.getElemento() == Tipo.FOGO){
+                dano = ataque * 2;
+                System.out.println("Super efetivo!");
+            }else if (defensor.getElemento() == Tipo.TERRA){
+                dano = ataque/2;
+                System.out.println("Pouco efetivo!");
+            }else{
+                System.out.println("Aguarde");
+            }
+        }
+        if (atacante.getElemento() == Tipo.TERRA){
+            if (defensor.getElemento() == Tipo.AGUA){
+                dano = ataque * 2;
+                System.out.println("Super efetivo!");
+            }else if (defensor.getElemento() == Tipo.FOGO){
+                dano = ataque/2;
+                System.out.println("Pouco efetivo!");
+            }else{
+                System.out.println("Aguarde");
+            }
+        }
+        return dano;
+    }
+
 }
