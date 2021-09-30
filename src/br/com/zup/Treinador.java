@@ -37,6 +37,15 @@ public class Treinador {
     public void setTimes(List<Time> times) {
         this.times = times;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder retornoDados = new StringBuilder();
+        retornoDados.append("Nome do Treinador: " + getNome());
+        retornoDados.append("Cidade do Treinador: " + getCidade());
+        retornoDados.append("Time: " + getTimes());
+        return retornoDados.toString();
+    }
 }
 
 

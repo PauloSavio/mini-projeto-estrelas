@@ -16,4 +16,11 @@ public class Time {
     public void setPokemons(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder retornoDados = new StringBuilder();
+        retornoDados.append("Time: " + getPokemons());
+        return retornoDados.toString();
+    }
 }
