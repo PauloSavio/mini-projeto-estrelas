@@ -44,5 +44,15 @@ public class Batalha {
     public void setVencedor(Pokemon vencedor) {
         this.vencedor = vencedor;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder retornoDados = new StringBuilder();
+        retornoDados.append("Identificação da Batalha: " + id);
+        retornoDados.append("Pokemon 1: " + getPokemonTreinador1());
+        retornoDados.append("Pokemon 2: " + getPokemonTreinador2());
+        retornoDados.append("Pokemon vencedor: " + getVencedor());
+        return retornoDados.toString();
+    }
 }
 
