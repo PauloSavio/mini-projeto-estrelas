@@ -5,8 +5,7 @@ import java.util.List;
 public class Time {
     private List<Pokemon> pokemons;
 
-    public Time(List<Pokemon> pokemons) {
-        this.pokemons = pokemons;
+    public Time() {
     }
 
     public List<Pokemon> getPokemons() {
@@ -15,6 +14,10 @@ public class Time {
 
     public void setPokemons(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
+    }
+
+    public void adicionarPokemon(Pokemon pokemon){
+        pokemons.add(pokemon);
     }
 
     @Override
