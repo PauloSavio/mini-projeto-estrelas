@@ -29,6 +29,10 @@ public class Arena {
         this.treinadores = treinadores;
     }
 
+    public void adicionarTreinador(Treinador novoTreinador){
+        treinadores.add(novoTreinador);
+    }
+
     @Override
     public String toString() {
         StringBuilder retornoMetodo = new StringBuilder();
