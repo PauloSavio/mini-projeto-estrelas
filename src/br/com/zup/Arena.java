@@ -28,4 +28,12 @@ public class Arena {
     public void setTreinadores(List<Treinador> treinadores) {
         this.treinadores = treinadores;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder retornoMetodo = new StringBuilder();
+        retornoMetodo.append("\n Luta: " + getLutas());
+        retornoMetodo.append("\n Treinador: " + getTreinadores());
+        return retornoMetodo.toString();
+    }
 }

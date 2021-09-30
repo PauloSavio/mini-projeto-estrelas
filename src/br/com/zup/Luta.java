@@ -67,4 +67,16 @@ public class Luta {
     public void setVitoriasTreinador2(int vitoriasTreinador2) {
         this.vitoriasTreinador2 = vitoriasTreinador2;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder retornarDados = new StringBuilder();
+        retornarDados.append("Identificação da Luta: " + getId());
+        retornarDados.append("Treinador 1: " + getTreinador1());
+        retornarDados.append("Treinador 2: " + getTreinador2());
+        retornarDados.append("Batalhas: " + getBatalhas());
+        retornarDados.append("Vitórias do Treinador 1: " + getVitoriasTreinador1());
+        retornarDados.append("Vitórias do Treinador 2: " + getVitoriasTreinador2());
+        return retornarDados.toString();
+    }
 }

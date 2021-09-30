@@ -44,4 +44,14 @@ public class Pokemon {
     public void setElemento(Tipo elemento) {
         this.elemento = elemento;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder retornarDados = new StringBuilder();
+        retornarDados.append("Nome: " + getNome());
+        retornarDados.append("Ataque: " + getAtaque());
+        retornarDados.append("Vida: " + getVida());
+        retornarDados.append("Elemento: " + getElemento());
+        return retornarDados.toString();
+    }
 }
