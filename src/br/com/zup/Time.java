@@ -1,9 +1,10 @@
 package br.com.zup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Time {
-    private List<Pokemon> pokemons;
+    private List<Pokemon> pokemons = new ArrayList<>();
 
     public Time() {
     }
