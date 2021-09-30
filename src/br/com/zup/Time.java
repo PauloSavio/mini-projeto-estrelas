@@ -1,12 +1,12 @@
 package br.com.zup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Time {
-    private List<Pokemon> pokemons;
+    private List<Pokemon> pokemons = new ArrayList<>();
 
-    public Time(List<Pokemon> pokemons) {
-        this.pokemons = pokemons;
+    public Time() {
     }
 
     public List<Pokemon> getPokemons() {
@@ -15,6 +15,10 @@ public class Time {
 
     public void setPokemons(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
+    }
+
+    public void adicionarPokemon(Pokemon pokemon){
+        pokemons.add(pokemon);
     }
 
     @Override

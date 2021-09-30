@@ -87,10 +87,11 @@ public class Pokemon {
     @Override
     public String toString() {
         StringBuilder retornarDados = new StringBuilder();
-        retornarDados.append("Nome: " + getNome());
-        retornarDados.append("Ataque: " + getAtaque());
-        retornarDados.append("Vida: " + getVida());
-        retornarDados.append("Elemento: " + getElemento());
+        retornarDados.append("\n Nome: " + getNome());
+        retornarDados.append("\n Ataque: " + getAtaque());
+        retornarDados.append("\n Vida: " + getVida());
+        retornarDados.append("\n Elemento: " + getElemento());
+        retornarDados.append("\n -----------------");
         return retornarDados.toString();
     }
 

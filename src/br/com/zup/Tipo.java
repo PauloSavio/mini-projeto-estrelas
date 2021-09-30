@@ -5,11 +5,6 @@ public enum Tipo {
 
 
 
-    @Override
-    public String toString() {
-        StringBuilder retornoDados = new StringBuilder();
-        retornoDados.append("Tipo: " + Tipo);
-        return retornoDados.toString();
-    }
+
 
 }
