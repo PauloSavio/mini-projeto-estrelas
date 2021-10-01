@@ -1,5 +1,6 @@
 package br.com.zup;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -90,11 +91,11 @@ public class Sistema {
     }
 
 
-
     public static void executar() {
 
         Arena arena1 = new Arena();
         boolean menu = true;
+        List<Treinador>treinadores = new ArrayList<>();
         while (menu) {
 
             int qtdeTreinador = arena1.getTreinadores().size();
@@ -104,6 +105,7 @@ public class Sistema {
 
                 if (escolhaUsuario == 1) {
                     Treinador treinador = criaTreinador();
+
 
 
                     //exibindo times
@@ -137,10 +139,12 @@ public class Sistema {
                     System.out.println("Até a próxima!");
                     menu = false;
                 }
-            }else{
+            } else {
                 //menu 2
 
                 System.out.println("Para iniciar uma luta, digite 1");
+                treinadores = arena1.getTreinadores();
+                iniciarLuta(treinadores.get(0), treinadores.get(1));
                 menu = false;
             }
 
@@ -159,8 +163,6 @@ public class Sistema {
         System.out.println("Digite 2 para sair");
 
     }
-
-
 
 
     public static void iniciarLuta(Treinador treinador1, Treinador treinador2) {
@@ -182,6 +184,27 @@ public class Sistema {
         double iniciativa1 = Math.random();
         double iniciativa2 = Math.random();
 
+
+        System.out.println("Primeira batalha");
+
+        while (pokemon1.getVida() > 0 & pokemon2.getVida() > 0) {
+
+            if (iniciativa1 > iniciativa2) {
+                double dano = calcularDano(pokemon1, pokemon2);
+                double vida = receberDano(dano, pokemon2);
+                pokemon2.setVida(vida);
+                dano = calcularDano(pokemon2, pokemon1);
+                vida = receberDano(dano, pokemon1);
+                pokemon1.setVida(vida);
+            } else {
+                double dano = calcularDano(pokemon2, pokemon1);
+                double vida = receberDano(dano, pokemon1);
+                pokemon1.setVida(vida);
+                dano = calcularDano(pokemon1, pokemon2);
+                vida = receberDano(dano, pokemon2);
+                pokemon2.setVida(vida);
+            }
+
         if (iniciativa1 > iniciativa2) {
             double dano = calcularDano(pokemon1, pokemon2);
             double vida = receberDano(dano, pokemon2);
@@ -192,6 +215,7 @@ public class Sistema {
             double vida = receberDano(dano, pokemon1);
             pokemon1.setVida(vida);
             System.out.println(pokemon2 + " causou " + dano + "de dano em " + pokemon1);
+
         }
 
 
@@ -227,11 +251,16 @@ public class Sistema {
                 return dano = ataque / 2;
             }
         }
+        System.out.println(atacante.getNome() + " está atacando " + defensor.getNome());
+        System.out.println("A vida de " + defensor.getNome() + " é " + defensor.getVida());
         return dano;
     }
 
     public static double receberDano(double dano, Pokemon pokemonAtacado) {
         double novaVida = pokemonAtacado.getVida() - dano;
+        if (pokemonAtacado.getVida() < 1){
+            System.out.println(pokemonAtacado.getNome() + " foi derrotado!");
+        }
         return novaVida;
 
     }
