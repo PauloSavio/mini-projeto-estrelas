@@ -60,51 +60,70 @@ public class Sistema {
     }
 
 
-
-        //submenu
-        public static void submenuTime(){
-            System.out.println("Para escolher o time Canto, digite 1");
-            System.out.println("Para escolher o time Alola, digite 2");
-            System.out.println("Para escolher o time XY, digite 3");
-        }
+    //submenu
+    public static void submenuTime() {
+        System.out.println("Para escolher o time Canto, digite 1");
+        System.out.println("Para escolher o time Alola, digite 2");
+        System.out.println("Para escolher o time XY, digite 3");
+    }
 
     //Método executar:
 
     public static void executar() {
-       boolean menu = true;
-       Arena arena1 = new Arena();
 
-       while(menu){
-           menuInicial();
-           int escolhaUsuario = receberDados("Digite a opção desejada: ").nextInt();
+        Arena arena1 = new Arena();
+        boolean menu = true;
+        while (menu) {
 
-           if (escolhaUsuario ==1){
-               Treinador treinador = criaTreinador();
-               arena1.adicionarTreinador(treinador);
+            int qtdeTreinador = arena1.getTreinadores().size();
+            if (qtdeTreinador < 2) {
+                menuInicial();
+                int escolhaUsuario = receberDados("Digite a opção desejada: ").nextInt();
 
-               //exibindo times
-               System.out.println("Os times disponíveis são: ");
-               System.out.println(criarTimeAlola().toString());
-               System.out.println(criarTimeCanto().toString());
-               System.out.println(criarTimeXy().toString();
-
-               boolean submenu = true;
-               while (submenu){
-                   submenuTime();
-                   int escolhaUsuarioB = receberDados("Digite a opção desejada: ").nextInt();
-                   if (escolhaUsuarioB == 1){
-
-                   }
-               }
+                if (escolhaUsuario == 1) {
+                    Treinador treinador = criaTreinador();
 
 
-           }else if(escolhaUsuario == 2){
-               System.out.println("Até a próxima!");
-               menu = false;
-           }
-       }
+                    //exibindo times
+                    System.out.println("Os times disponíveis são: ");
+                    System.out.println(criarTimeCanto().toString());
+                    System.out.println(criarTimeAlola().toString());
+                    System.out.println(criarTimeXy().toString());
+
+                    boolean submenu = true;
+                    while (submenu) {
+                        submenuTime();
+                        int escolhaUsuarioB = receberDados("Digite a opção desejada: ").nextInt();
+                        if (escolhaUsuarioB == 1) {
+                            Time timeEscolhido = criarTimeCanto();
+                            treinador.setTime(timeEscolhido);
+                        } else if (escolhaUsuarioB == 2) {
+                            Time timeEscolhido = criarTimeAlola();
+                            treinador.setTime(timeEscolhido);
+                        } else {
+                            Time timeEscolhido = criarTimeXy();
+                            treinador.setTime(timeEscolhido);
+                        }
+                        System.out.println(treinador);
+                        submenu = false;
+                    }
+                    arena1.adicionarTreinador(treinador);
+                    qtdeTreinador = arena1.getTreinadores().size();
+                    System.out.println("Quantidade de treinadores na Arena: " + qtdeTreinador);
+
+                } else if (escolhaUsuario == 2) {
+                    System.out.println("Até a próxima!");
+                    menu = false;
+                }
+            }else{
+                //menu 2
+
+                System.out.println("Para iniciar uma luta, digite 1");
+                menu = false;
+            }
 
 
+        }
 
 
     }
