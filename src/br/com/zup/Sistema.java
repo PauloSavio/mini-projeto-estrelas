@@ -7,11 +7,13 @@ public class Sistema {
     public static void IniciaPrograma() {
 
     }
+
     // Método para Receber Dados
     public static Scanner receberDados(String mensagem) {
         System.out.println(mensagem);
         return new Scanner(System.in);
     }
+
     //criando times
     public static Time criarTimeCanto() {
         Time canto = new Time();
@@ -33,7 +35,7 @@ public class Sistema {
         alola.adicionarPokemon(pokemon1);
         alola.adicionarPokemon(pokemon2);
         alola.adicionarPokemon(pokemon3);
-        System.out.println(alola);
+//        System.out.println(alola);
         return alola;
     }
 
@@ -45,15 +47,20 @@ public class Sistema {
         xy.adicionarPokemon(pokemon1);
         xy.adicionarPokemon(pokemon2);
         xy.adicionarPokemon(pokemon3);
-        System.out.println(xy);
+//        System.out.println(xy);
         return xy;
     }
 
+    //método para exibir times
+
+
     //método provisório para testes
-    public static void testar(){
-        criarTimeAlola();
-        criarTimeCanto();
-        criarTimeXy();
+    public static void testar() {
+
+        System.out.println(criarTimeAlola().toString());;
+        System.out.println(criarTimeCanto().toString());
+        System.out.println(criarTimeXy().toString());
+
     }
 
 }

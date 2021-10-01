@@ -6,12 +6,15 @@ import java.util.List;
 public class Treinador {
     private String nome;
     private String cidade;
-    private List<Time> times = new ArrayList<>();
+    private Time timeEscolhido;
 
-    public Treinador(String nome, String cidade, List<Time> times) {
+    public Treinador() {
+    }
+
+    public Treinador(String nome, String cidade, Time times) {
         this.nome = nome;
         this.cidade = cidade;
-        this.times = times;
+        this.timeEscolhido = times;
     }
 
     public String getNome() {
@@ -30,12 +33,12 @@ public class Treinador {
         this.cidade = cidade;
     }
 
-    public List<Time> getTimes() {
-        return times;
+    public Time getTime() {
+        return timeEscolhido;
     }
 
-    public void setTimes(List<Time> times) {
-        this.times = times;
+    public void setTime(Time times) {
+        this.timeEscolhido = times;
     }
 
     @Override
@@ -43,7 +46,7 @@ public class Treinador {
         StringBuilder retornoDados = new StringBuilder();
         retornoDados.append("Nome do Treinador: " + getNome());
         retornoDados.append("Cidade do Treinador: " + getCidade());
-        retornoDados.append("Time: " + getTimes());
+        retornoDados.append("Time: " + getTime());
         return retornoDados.toString();
     }
 }

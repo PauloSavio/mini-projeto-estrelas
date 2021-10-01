@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class Arena {
     private List<Luta>lutas = new ArrayList<>();
+    private List<Time>times = new ArrayList<>();
     private List<Treinador>treinadores = new ArrayList<>();
 
     public Arena(List<Luta> lutas, List<Treinador> treinadores) {
@@ -19,6 +20,14 @@ public class Arena {
 
     public void setLutas(List<Luta> lutas) {
         this.lutas = lutas;
+    }
+
+    public List<Time> getTimes() {
+        return times;
+    }
+
+    public void setTimes(List<Time> times) {
+        this.times = times;
     }
 
     public List<Treinador> getTreinadores() {
