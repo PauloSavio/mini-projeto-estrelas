@@ -59,14 +59,27 @@ public class Sistema {
         return treinador;
     }
 
-    //método provisório para testes
-    public static void testar() {
 
+    //Método executar:
+
+    public static void executar() {
         System.out.println(criarTimeAlola().toString());
         ;
         System.out.println(criarTimeCanto().toString());
         System.out.println(criarTimeXy().toString());
 
+
     }
+
+    //Metodo exibir menu inicial
+
+    public static void menuInicial() {
+
+        System.out.println("Boas vindas à Arena pokemon Treinador!!!");
+        System.out.println("Digite 1 para fazer sua inscrição");
+        System.out.println("Digite 2 para sair");
+
+    }
+
 
 }
