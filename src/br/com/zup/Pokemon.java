@@ -52,9 +52,9 @@ public class Pokemon {
     public String toString() {
         StringBuilder retornarDados = new StringBuilder();
         retornarDados.append("\n Nome: " + getNome());
+        retornarDados.append("\t Vida: " + getVida());
         retornarDados.append("\n Ataque: " + getAtaque());
-        retornarDados.append("\n Vida: " + getVida());
-        retornarDados.append("\n Elemento: " + getElemento());
+        retornarDados.append("\t Elemento: " + getElemento());
         retornarDados.append("\n -----------------");
         return retornarDados.toString();
     }
