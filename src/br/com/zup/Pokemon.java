@@ -6,6 +6,9 @@ public class Pokemon {
     private double vida;
     private Tipo elemento;
 
+    public Pokemon() {
+    }
+
     public Pokemon(String nome, double ataque, double vida, Tipo elemento) {
         this.nome = nome;
         this.ataque = ataque;
@@ -43,45 +46,6 @@ public class Pokemon {
 
     public void setElemento(Tipo elemento) {
         this.elemento = elemento;
-    }
-
-    public static double calcularDano(Pokemon atacante, Pokemon defensor){
-        double ataque = atacante.getAtaque();
-        double dano = ataque;
-        if (atacante.getElemento() == Tipo.FOGO){
-            if (defensor.getElemento() == Tipo.TERRA){
-                dano = ataque * 2;
-                System.out.println("Super efetivo!");
-            }else if (defensor.getElemento() == Tipo.AGUA){
-                dano = ataque/2;
-                System.out.println("Pouco efetivo!");
-            }else{
-                System.out.println("Aguarde");
-            }
-        }
-        if (atacante.getElemento() == Tipo.AGUA){
-            if (defensor.getElemento() == Tipo.FOGO){
-                dano = ataque * 2;
-                System.out.println("Super efetivo!");
-            }else if (defensor.getElemento() == Tipo.TERRA){
-                dano = ataque/2;
-                System.out.println("Pouco efetivo!");
-            }else{
-                System.out.println("Aguarde");
-            }
-        }
-        if (atacante.getElemento() == Tipo.TERRA){
-            if (defensor.getElemento() == Tipo.AGUA){
-                dano = ataque * 2;
-                System.out.println("Super efetivo!");
-            }else if (defensor.getElemento() == Tipo.FOGO){
-                dano = ataque/2;
-                System.out.println("Pouco efetivo!");
-            }else{
-                System.out.println("Aguarde");
-            }
-        }
-        return dano;
     }
 
     @Override

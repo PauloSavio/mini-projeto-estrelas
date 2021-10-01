@@ -153,12 +153,62 @@ public class Sistema {
         Pokemon pokemon1Time1 = pokemons1.get(0);
         Pokemon pokemon1Time2 = pokemons2.get(0);
 
-        iniciarBatalha();
+        iniciarBatalha(pokemon1Time1, pokemon1Time2);
 
     }
 
-    public static void iniciarBatalha() {
+    public static void iniciarBatalha(Pokemon pokemon1, Pokemon pokemon2) {
+        double iniciativa1 = Math.random();
+        double iniciativa2 = Math.random();
 
+        if (iniciativa1 > iniciativa2) {
+            double dano = calcularDano(pokemon1, pokemon2);
+            double vida = receberDano(dano, pokemon2);
+            pokemon2.setVida(vida);
+        } else {
+            double dano = calcularDano(pokemon2, pokemon1);
+            double vida = receberDano(dano, pokemon1);
+            pokemon1.setVida(vida);
+
+        }
+    }
+
+    public static double calcularDano(Pokemon atacante, Pokemon defensor) {
+        double ataque = atacante.getAtaque();
+        double dano = ataque;
+        if (atacante.getElemento().equals(Tipo.FOGO)) {
+            if (defensor.getElemento().equals(Tipo.TERRA)) {
+                System.out.println("Super efetivo!");
+                return dano = ataque * 2;
+            } else if (defensor.getElemento().equals(Tipo.AGUA)) {
+                System.out.println("Pouco efetivo!");
+                return dano = ataque / 2;
+            }
+        }
+        if (atacante.getElemento().equals(Tipo.AGUA)) {
+            if (defensor.getElemento().equals(Tipo.FOGO)) {
+                System.out.println("Super efetivo!");
+                return dano = ataque * 2;
+            } else if (defensor.getElemento().equals(Tipo.TERRA)) {
+                System.out.println("Pouco efetivo!");
+                return dano = ataque / 2;
+            }
+        }
+        if (atacante.getElemento().equals(Tipo.TERRA)) {
+            if (defensor.getElemento().equals(Tipo.AGUA)) {
+                System.out.println("Super efetivo!");
+                return dano = ataque * 2;
+            } else if (defensor.getElemento().equals(Tipo.FOGO)) {
+                System.out.println("Pouco efetivo!");
+                return dano = ataque / 2;
+            }
+        }
+        return dano;
+    }
+
+    public static double receberDano(double dano, Pokemon pokemonAtacado) {
+        double novaVida = pokemonAtacado.getVida() - dano;
+        return novaVida;
 
     }
 
