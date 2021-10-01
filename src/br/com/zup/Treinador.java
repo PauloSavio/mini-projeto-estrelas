@@ -44,8 +44,8 @@ public class Treinador {
     public String toString() {
         StringBuilder retornoDados = new StringBuilder();
         retornoDados.append("Nome do Treinador: " + getNome());
-        retornoDados.append("Cidade do Treinador: " + getCidade());
-        retornoDados.append("Time: " + getTime());
+        retornoDados.append("\n Cidade do Treinador: " + getCidade());
+        retornoDados.append("\n Time: " + getTime());
         return retornoDados.toString();
     }
 }
