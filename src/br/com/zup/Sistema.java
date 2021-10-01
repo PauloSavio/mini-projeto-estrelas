@@ -18,6 +18,7 @@ public class Sistema {
     //criando times
     public static Time criarTimeCanto() {
         Time canto = new Time();
+        canto.setNome("\t Canto");
         Pokemon pokemon1 = new Pokemon("Charmander", 45, 100, Tipo.FOGO);
         Pokemon pokemon2 = new Pokemon("Squirtle", 45, 100, Tipo.AGUA);
         Pokemon pokemon3 = new Pokemon("Sandshrew", 45, 100, Tipo.TERRA);
@@ -30,6 +31,7 @@ public class Sistema {
 
     public static Time criarTimeAlola() {
         Time alola = new Time();
+        alola.setNome("\t Alola");
         Pokemon pokemon1 = new Pokemon("Litten", 45, 54, Tipo.FOGO);
         Pokemon pokemon2 = new Pokemon("Popplio", 45, 54, Tipo.AGUA);
         Pokemon pokemon3 = new Pokemon("Diglet", 45, 54, Tipo.TERRA);
@@ -42,6 +44,7 @@ public class Sistema {
 
     public static Time criarTimeXy() {
         Time xy = new Time();
+        xy.setNome("\t XY");
         Pokemon pokemon1 = new Pokemon("Fennekin", 45, 54, Tipo.FOGO);
         Pokemon pokemon2 = new Pokemon("Froakie", 45, 54, Tipo.AGUA);
         Pokemon pokemon3 = new Pokemon("Bunnelby", 45, 54, Tipo.TERRA);
@@ -165,12 +168,15 @@ public class Sistema {
             double dano = calcularDano(pokemon1, pokemon2);
             double vida = receberDano(dano, pokemon2);
             pokemon2.setVida(vida);
+            System.out.println(pokemon1 + " causou " + dano + " de dano em " + pokemon2);
         } else {
             double dano = calcularDano(pokemon2, pokemon1);
             double vida = receberDano(dano, pokemon1);
             pokemon1.setVida(vida);
-
+            System.out.println(pokemon2 + " causou " + dano + "de dano em " + pokemon1);
         }
+
+
     }
 
     public static double calcularDano(Pokemon atacante, Pokemon defensor) {
