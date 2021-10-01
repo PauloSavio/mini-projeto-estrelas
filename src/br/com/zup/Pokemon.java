@@ -2,11 +2,11 @@ package br.com.zup;
 
 public class Pokemon {
     private String nome;
-    private int ataque;
-    private int vida;
+    private double ataque;
+    private double vida;
     private Tipo elemento;
 
-    public Pokemon(String nome, int ataque, int vida, Tipo elemento) {
+    public Pokemon(String nome, double ataque, double vida, Tipo elemento) {
         this.nome = nome;
         this.ataque = ataque;
         this.vida = vida;
@@ -21,19 +21,19 @@ public class Pokemon {
         this.nome = nome;
     }
 
-    public int getAtaque() {
+    public double getAtaque() {
         return ataque;
     }
 
-    public void setAtaque(int ataque) {
+    public void setAtaque(double ataque) {
         this.ataque = ataque;
     }
 
-    public int getVida() {
+    public double getVida() {
         return vida;
     }
 
-    public void setVida(int vida) {
+    public void setVida(double vida) {
         this.vida = vida;
     }
 
@@ -45,9 +45,9 @@ public class Pokemon {
         this.elemento = elemento;
     }
 
-    public int calcularDano(Pokemon atacante, Pokemon defensor){
-        int ataque = atacante.getAtaque();
-        int dano = ataque;
+    public static double calcularDano(Pokemon atacante, Pokemon defensor){
+        double ataque = atacante.getAtaque();
+        double dano = ataque;
         if (atacante.getElemento() == Tipo.FOGO){
             if (defensor.getElemento() == Tipo.TERRA){
                 dano = ataque * 2;
