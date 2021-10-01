@@ -9,6 +9,9 @@ public class Arena {
     private List<Time>times = new ArrayList<>();
     private List<Treinador>treinadores = new ArrayList<>();
 
+    public Arena() {
+    }
+
     public Arena(List<Luta> lutas, List<Treinador> treinadores) {
         this.lutas = lutas;
         this.treinadores = treinadores;
