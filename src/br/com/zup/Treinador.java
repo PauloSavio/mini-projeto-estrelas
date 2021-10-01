@@ -11,10 +11,9 @@ public class Treinador {
     public Treinador() {
     }
 
-    public Treinador(String nome, String cidade, Time times) {
+    public Treinador(String nome, String cidade) {
         this.nome = nome;
         this.cidade = cidade;
-        this.timeEscolhido = times;
     }
 
     public String getNome() {

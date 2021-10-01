@@ -51,13 +51,19 @@ public class Sistema {
         return xy;
     }
 
-    //método para exibir times
-
+    //método para criar treinador
+    public static Treinador criaTreinador() {
+        String nomeTreinador = receberDados("Digite o nome do treinador").nextLine();
+        String nomeCidade = receberDados("Digite o nome da cidade").nextLine();
+        Treinador treinador = new Treinador(nomeTreinador, nomeCidade);
+        return treinador;
+    }
 
     //método provisório para testes
     public static void testar() {
 
-        System.out.println(criarTimeAlola().toString());;
+        System.out.println(criarTimeAlola().toString());
+        ;
         System.out.println(criarTimeCanto().toString());
         System.out.println(criarTimeXy().toString());
 
