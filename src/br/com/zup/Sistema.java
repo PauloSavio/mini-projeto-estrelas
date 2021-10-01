@@ -67,7 +67,7 @@ public class Sistema {
         System.out.println("Para escolher o time XY, digite 3");
     }
 
-    //Método executar:
+
 
     public static void executar() {
 
