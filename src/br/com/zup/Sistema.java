@@ -60,13 +60,6 @@ public class Sistema {
     }
 
 
-    //Método executar:
-
-    public static void executar() {
-        System.out.println(criarTimeAlola().toString());
-        ;
-        System.out.println(criarTimeCanto().toString());
-        System.out.println(criarTimeXy().toString());
 
         //submenu
         public static void submenuTime(){
@@ -74,6 +67,44 @@ public class Sistema {
             System.out.println("Para escolher o time Alola, digite 2");
             System.out.println("Para escolher o time XY, digite 3");
         }
+
+    //Método executar:
+
+    public static void executar() {
+       boolean menu = true;
+       Arena arena1 = new Arena();
+
+       while(menu){
+           menuInicial();
+           int escolhaUsuario = receberDados("Digite a opção desejada: ").nextInt();
+
+           if (escolhaUsuario ==1){
+               Treinador treinador = criaTreinador();
+               arena1.adicionarTreinador(treinador);
+
+               //exibindo times
+               System.out.println("Os times disponíveis são: ");
+               System.out.println(criarTimeAlola().toString());
+               System.out.println(criarTimeCanto().toString());
+               System.out.println(criarTimeXy().toString();
+
+               boolean submenu = true;
+               while (submenu){
+                   submenuTime();
+                   int escolhaUsuarioB = receberDados("Digite a opção desejada: ").nextInt();
+                   if (escolhaUsuarioB == 1){
+
+                   }
+               }
+
+
+           }else if(escolhaUsuario == 2){
+               System.out.println("Até a próxima!");
+               menu = false;
+           }
+       }
+
+
 
 
     }
