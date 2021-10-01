@@ -3,6 +3,7 @@ package br.com.zup;
 public class Main {
 
     public static void main(String[] args) {
+
         Treinador treinador1 = Sistema.criaTreinador();
         Treinador treinador2 = Sistema.criaTreinador();
 
@@ -13,6 +14,10 @@ public class Main {
         Sistema.iniciarLuta(treinador1, treinador2);
         System.out.println(treinador2.getTime().getPokemons().get(0).getVida());
 
+
+ 
+        Sistema.executar();
+ 
 
     }
 }
