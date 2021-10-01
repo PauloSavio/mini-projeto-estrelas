@@ -68,6 +68,13 @@ public class Sistema {
         System.out.println(criarTimeCanto().toString());
         System.out.println(criarTimeXy().toString());
 
+        //submenu
+        public static void submenuTime(){
+            System.out.println("Para escolher o time Canto, digite 1");
+            System.out.println("Para escolher o time Alola, digite 2");
+            System.out.println("Para escolher o time XY, digite 3");
+        }
+
 
     }
 
