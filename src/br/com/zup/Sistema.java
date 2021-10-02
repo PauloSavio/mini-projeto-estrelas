@@ -19,6 +19,7 @@ public class Sistema {
     //criando times
     public static Time criarTimeCanto() {
         Time canto = new Time();
+        canto.setNome("\t Canto");
         Pokemon pokemon1 = new Pokemon("Charmander", 35, 100, Tipo.FOGO);
         Pokemon pokemon2 = new Pokemon("Squirtle", 30, 120, Tipo.AGUA);
         Pokemon pokemon3 = new Pokemon("Sandshrew", 50, 70, Tipo.TERRA);
@@ -31,6 +32,7 @@ public class Sistema {
 
     public static Time criarTimeAlola() {
         Time alola = new Time();
+        alola.setNome("\t Alola");
         Pokemon pokemon1 = new Pokemon("Litten", 55, 65, Tipo.FOGO);
         Pokemon pokemon2 = new Pokemon("Popplio", 35, 110, Tipo.AGUA);
         Pokemon pokemon3 = new Pokemon("Diglet", 40, 100, Tipo.TERRA);
@@ -43,6 +45,7 @@ public class Sistema {
 
     public static Time criarTimeXy() {
         Time xy = new Time();
+        xy.setNome("\t XY");
         Pokemon pokemon1 = new Pokemon("Fennekin", 60, 60, Tipo.FOGO);
         Pokemon pokemon2 = new Pokemon("Froakie", 80, 50, Tipo.AGUA);
         Pokemon pokemon3 = new Pokemon("Bunnelby", 120, 30, Tipo.TERRA);
