@@ -6,10 +6,6 @@ import java.util.Scanner;
 
 public class Sistema {
 
-    public static void IniciaPrograma() {
-
-    }
-
     // Método para Receber Dados
     public static Scanner receberDados(String mensagem) {
         System.out.println(mensagem);
@@ -19,11 +15,6 @@ public class Sistema {
     //criando times
     public static Time criarTimeCanto() {
         Time canto = new Time();
-
-        canto.setNome("\t Canto");
-        Pokemon pokemon1 = new Pokemon("Charmander", 35, 100, Tipo.FOGO);
-        Pokemon pokemon2 = new Pokemon("Squirtle", 30, 120, Tipo.AGUA);
-        Pokemon pokemon3 = new Pokemon("Sandshrew", 50, 70, Tipo.TERRA);
 
         canto.setNome("\t Canto");
         Pokemon pokemon1 = new Pokemon("Charmander", 45, 100, Tipo.FOGO);
@@ -39,11 +30,6 @@ public class Sistema {
 
     public static Time criarTimeAlola() {
         Time alola = new Time();
-      
-        alola.setNome("\t Alola");
-        Pokemon pokemon1 = new Pokemon("Litten", 55, 65, Tipo.FOGO);
-        Pokemon pokemon2 = new Pokemon("Popplio", 35, 110, Tipo.AGUA);
-        Pokemon pokemon3 = new Pokemon("Diglet", 40, 100, Tipo.TERRA);
 
         alola.setNome("\t Alola");
         Pokemon pokemon1 = new Pokemon("Litten", 45, 54, Tipo.FOGO);
@@ -61,10 +47,6 @@ public class Sistema {
         Time xy = new Time();
 
         xy.setNome("\t XY");
-
-        Pokemon pokemon1 = new Pokemon("Fennekin", 60, 60, Tipo.FOGO);
-        Pokemon pokemon2 = new Pokemon("Froakie", 80, 50, Tipo.AGUA);
-        Pokemon pokemon3 = new Pokemon("Bunnelby", 120, 30, Tipo.TERRA);
 
         xy.setNome("\t XY");
         Pokemon pokemon1 = new Pokemon("Fennekin", 45, 54, Tipo.FOGO);
@@ -86,12 +68,126 @@ public class Sistema {
         return treinador;
     }
 
+    //Metodo exibir menu inicial
+    public static void menuInicial() {
+        System.out.println("Boas vindas à Arena pokemon Treinador!!!");
+        System.out.println("Digite 1 para fazer sua inscrição");
+        System.out.println("Digite 2 para sair");
 
-    //submenu
+    }
+
+    //Método para exibir submenu de escolha de times
     public static void submenuTime() {
         System.out.println("Para escolher o time Canto, digite 1");
         System.out.println("Para escolher o time Alola, digite 2");
         System.out.println("Para escolher o time XY, digite 3");
+    }
+
+    //Método para calcular dano a ser aplicado de acordo com o elemento
+    public static double calcularDano(Pokemon atacante, Pokemon defensor) {
+        double ataque = atacante.getAtaque();
+        double dano = ataque;
+        if (atacante.getElemento().equals(Tipo.FOGO)) {
+            if (defensor.getElemento().equals(Tipo.TERRA)) {
+                System.out.println("Super efetivo!");
+                return dano = ataque * 2;
+            } else if (defensor.getElemento().equals(Tipo.AGUA)) {
+                System.out.println("Pouco efetivo!");
+                return dano = ataque / 2;
+            }
+        }
+        if (atacante.getElemento().equals(Tipo.AGUA)) {
+            if (defensor.getElemento().equals(Tipo.FOGO)) {
+                System.out.println("Super efetivo!");
+                return dano = ataque * 2;
+            } else if (defensor.getElemento().equals(Tipo.TERRA)) {
+                System.out.println("Pouco efetivo!");
+                return dano = ataque / 2;
+            }
+        }
+        if (atacante.getElemento().equals(Tipo.TERRA)) {
+            if (defensor.getElemento().equals(Tipo.AGUA)) {
+                System.out.println("Super efetivo!");
+                return dano = ataque * 2;
+            } else if (defensor.getElemento().equals(Tipo.FOGO)) {
+                System.out.println("Pouco efetivo!");
+                return dano = ataque / 2;
+            }
+        }
+        System.out.println(atacante.getNome() + " está atacando " + defensor.getNome());
+        System.out.println("A vida de " + defensor.getNome() + " é " + defensor.getVida());
+        return dano;
+    }
+
+    //método para aplicar o dano calculado no método calcularDano na vida do pokemon atacado
+    public static double receberDano(double dano, Pokemon pokemonAtacado) {
+        double novaVida = pokemonAtacado.getVida() - dano;
+        if (pokemonAtacado.getVida() < 1) {
+            System.out.println(pokemonAtacado.getNome() + " foi derrotado!");
+        }
+        return novaVida;
+
+    }
+
+    //Método de batalhas entre os pokemons
+    public static void iniciarBatalha(Pokemon pokemon1, Pokemon pokemon2) {
+        double iniciativa1 = Math.random();
+        double iniciativa2 = Math.random();
+
+
+        System.out.println("Primeira batalha");
+
+        while (pokemon1.getVida() > 0 & pokemon2.getVida() > 0) {
+
+            if (iniciativa1 > iniciativa2) {
+                double dano = calcularDano(pokemon1, pokemon2);
+                double vida = receberDano(dano, pokemon2);
+                pokemon2.setVida(vida);
+                dano = calcularDano(pokemon2, pokemon1);
+                vida = receberDano(dano, pokemon1);
+                pokemon1.setVida(vida);
+            } else {
+                double dano = calcularDano(pokemon2, pokemon1);
+                double vida = receberDano(dano, pokemon1);
+                pokemon1.setVida(vida);
+                dano = calcularDano(pokemon1, pokemon2);
+                vida = receberDano(dano, pokemon2);
+                pokemon2.setVida(vida);
+            }
+
+            if (iniciativa1 > iniciativa2) {
+                double dano = calcularDano(pokemon1, pokemon2);
+                double vida = receberDano(dano, pokemon2);
+                pokemon2.setVida(vida);
+                System.out.println(pokemon1 + " causou " + dano + " de dano em " + pokemon2);
+            } else {
+                double dano = calcularDano(pokemon2, pokemon1);
+                double vida = receberDano(dano, pokemon1);
+                pokemon1.setVida(vida);
+                System.out.println(pokemon2 + " causou " + dano + "de dano em " + pokemon1);
+
+            }
+
+
+        }
+
+
+    }
+
+    //Método de luta entre treinadores
+    public static void iniciarLuta(Treinador treinador1, Treinador treinador2) {
+        System.out.println("Está começando a luta!");
+        Time time1 = treinador1.getTime();
+        Time time2 = treinador2.getTime();
+
+        List<Pokemon> pokemons1 = time1.getPokemons();
+        List<Pokemon> pokemons2 = time2.getPokemons();
+
+        Pokemon pokemon1Time1 = pokemons1.get(0);
+        Pokemon pokemon1Time2 = pokemons2.get(0);
+
+        iniciarBatalha(pokemon1Time1, pokemon1Time2);
+
     }
 
 
@@ -99,7 +195,7 @@ public class Sistema {
 
         Arena arena1 = new Arena();
         boolean menu = true;
-        List<Treinador>treinadores = new ArrayList<>();
+        List<Treinador> treinadores = new ArrayList<>();
         while (menu) {
 
             int qtdeTreinador = arena1.getTreinadores().size();
@@ -109,7 +205,6 @@ public class Sistema {
 
                 if (escolhaUsuario == 1) {
                     Treinador treinador = criaTreinador();
-
 
 
                     //exibindo times
@@ -158,116 +253,8 @@ public class Sistema {
 
     }
 
-    //Metodo exibir menu inicial
-
-    public static void menuInicial() {
-
-        System.out.println("Boas vindas à Arena pokemon Treinador!!!");
-        System.out.println("Digite 1 para fazer sua inscrição");
-        System.out.println("Digite 2 para sair");
-
-    }
 
 
-    public static void iniciarLuta(Treinador treinador1, Treinador treinador2) {
-        System.out.println("Está começando a luta!");
-        Time time1 = treinador1.getTime();
-        Time time2 = treinador2.getTime();
-
-        List<Pokemon> pokemons1 = time1.getPokemons();
-        List<Pokemon> pokemons2 = time2.getPokemons();
-
-        Pokemon pokemon1Time1 = pokemons1.get(0);
-        Pokemon pokemon1Time2 = pokemons2.get(0);
-
-        iniciarBatalha(pokemon1Time1, pokemon1Time2);
-
-    }
-
-    public static void iniciarBatalha(Pokemon pokemon1, Pokemon pokemon2) {
-        double iniciativa1 = Math.random();
-        double iniciativa2 = Math.random();
-
-
-        System.out.println("Primeira batalha");
-
-        while (pokemon1.getVida() > 0 & pokemon2.getVida() > 0) {
-
-            if (iniciativa1 > iniciativa2) {
-                double dano = calcularDano(pokemon1, pokemon2);
-                double vida = receberDano(dano, pokemon2);
-                pokemon2.setVida(vida);
-                dano = calcularDano(pokemon2, pokemon1);
-                vida = receberDano(dano, pokemon1);
-                pokemon1.setVida(vida);
-            } else {
-                double dano = calcularDano(pokemon2, pokemon1);
-                double vida = receberDano(dano, pokemon1);
-                pokemon1.setVida(vida);
-                dano = calcularDano(pokemon1, pokemon2);
-                vida = receberDano(dano, pokemon2);
-                pokemon2.setVida(vida);
-            }
-
-        if (iniciativa1 > iniciativa2) {
-            double dano = calcularDano(pokemon1, pokemon2);
-            double vida = receberDano(dano, pokemon2);
-            pokemon2.setVida(vida);
-            System.out.println(pokemon1 + " causou " + dano + " de dano em " + pokemon2);
-        } else {
-            double dano = calcularDano(pokemon2, pokemon1);
-            double vida = receberDano(dano, pokemon1);
-            pokemon1.setVida(vida);
-            System.out.println(pokemon2 + " causou " + dano + "de dano em " + pokemon1);
-
-        }
-
-
-    }
-
-    public static double calcularDano(Pokemon atacante, Pokemon defensor) {
-        double ataque = atacante.getAtaque();
-        double dano = ataque;
-        if (atacante.getElemento().equals(Tipo.FOGO)) {
-            if (defensor.getElemento().equals(Tipo.TERRA)) {
-                System.out.println("Super efetivo!");
-                return dano = ataque * 2;
-            } else if (defensor.getElemento().equals(Tipo.AGUA)) {
-                System.out.println("Pouco efetivo!");
-                return dano = ataque / 2;
-            }
-        }
-        if (atacante.getElemento().equals(Tipo.AGUA)) {
-            if (defensor.getElemento().equals(Tipo.FOGO)) {
-                System.out.println("Super efetivo!");
-                return dano = ataque * 2;
-            } else if (defensor.getElemento().equals(Tipo.TERRA)) {
-                System.out.println("Pouco efetivo!");
-                return dano = ataque / 2;
-            }
-        }
-        if (atacante.getElemento().equals(Tipo.TERRA)) {
-            if (defensor.getElemento().equals(Tipo.AGUA)) {
-                System.out.println("Super efetivo!");
-                return dano = ataque * 2;
-            } else if (defensor.getElemento().equals(Tipo.FOGO)) {
-                System.out.println("Pouco efetivo!");
-                return dano = ataque / 2;
-            }
-        }
-        System.out.println(atacante.getNome() + " está atacando " + defensor.getNome());
-        System.out.println("A vida de " + defensor.getNome() + " é " + defensor.getVida());
-        return dano;
-    }
-
-    public static double receberDano(double dano, Pokemon pokemonAtacado) {
-        double novaVida = pokemonAtacado.getVida() - dano;
-        if (pokemonAtacado.getVida() < 1){
-            System.out.println(pokemonAtacado.getNome() + " foi derrotado!");
-        }
-        return novaVida;
-
-    }
 
 
 }
