@@ -187,8 +187,9 @@ public class Sistema {
 
 //Método de luta entre treinadores
 public static void iniciarLuta(Treinador treinador1,Treinador treinador2){
-        System.out.println("Está começando a luta!");
-        Time time1=treinador1.getTime();
+    System.out.println("\n Está começando a luta entre o Treinador " + treinador1.getNome() + " e o Treinador " + treinador2.getNome() +"!!!");
+
+    Time time1=treinador1.getTime();
         Time time2=treinador2.getTime();
 
         List<Pokemon> pokemons1=time1.getPokemons();
