@@ -76,6 +76,14 @@ public class Sistema {
 
     }
 
+    //Método exibir menu com opção de batalha
+    public static void menuComBatalha() {
+        System.out.println("Já existem pelo menos 2 Treinadores na arena!");
+        System.out.println("Digite 1 para iniciar uma luta!!! ");
+        System.out.println("Digite 2 para sair");
+
+    }
+
     //Método para exibir submenu de escolha de times
     public static void submenuTime() {
         System.out.println("Para escolher o time Canto, digite 1");
@@ -239,12 +247,21 @@ public class Sistema {
                     menu = false;
                 }
             } else {
-                //menu 2
+                //Menu 2 quando existem pelo menos 2 treinadores na arena
+                menuComBatalha();
+                int escolhaUsuarioC = receberDados("Digite a opção desejada: ").nextInt();
 
-                System.out.println("Para iniciar uma luta, digite 1");
-                treinadores = arena1.getTreinadores();
-                iniciarLuta(treinadores.get(0), treinadores.get(1));
-                menu = false;
+                if (escolhaUsuarioC == 1) {
+                    treinadores = arena1.getTreinadores();
+                    iniciarLuta(treinadores.get(0), treinadores.get(1));
+                    menu = false;
+
+                } else if (escolhaUsuarioC == 2) {
+                    System.out.println("Até a próxima Treinador!!!");
+                    menu = false;
+                }
+
+
             }
 
 
