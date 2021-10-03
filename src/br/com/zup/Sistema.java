@@ -151,127 +151,128 @@ public class Sistema {
                 double dano = calcularDano(pokemon1, pokemon2);
                 double vida = receberDano(dano, pokemon2);
                 pokemon2.setVida(vida);
+                System.out.println("\n " + pokemon1.getNome() + " causou  " + dano + " de dano em " + pokemon2.getNome());
+                System.out.println(" A vida de " + pokemon2.getNome() + " é igual a: " + pokemon2.getVida());
+
                 dano = calcularDano(pokemon2, pokemon1);
                 vida = receberDano(dano, pokemon1);
                 pokemon1.setVida(vida);
+                System.out.println("\n " + pokemon2.getNome() + " causou  " + dano + " de dano em " + pokemon1.getNome());
+                System.out.println(" A vida de " + pokemon1.getNome() + " é igual a: " + pokemon1.getVida());
             } else {
                 double dano = calcularDano(pokemon2, pokemon1);
                 double vida = receberDano(dano, pokemon1);
                 pokemon1.setVida(vida);
+                System.out.println("\n " + pokemon2.getNome() + " causou  " + dano + " de dano em " + pokemon1.getNome());
+                System.out.println(" A vida de " + pokemon1.getNome() + " é igual a: " + pokemon1.getVida());
+
                 dano = calcularDano(pokemon1, pokemon2);
                 vida = receberDano(dano, pokemon2);
                 pokemon2.setVida(vida);
-            }
-
-            if (iniciativa1 > iniciativa2) {
-                double dano = calcularDano(pokemon1, pokemon2);
-                double vida = receberDano(dano, pokemon2);
-                pokemon2.setVida(vida);
-                System.out.println(pokemon1 + " causou " + dano + " de dano em " + pokemon2);
-            } else {
-                double dano = calcularDano(pokemon2, pokemon1);
-                double vida = receberDano(dano, pokemon1);
-                pokemon1.setVida(vida);
-                System.out.println(pokemon2 + " causou " + dano + "de dano em " + pokemon1);
+                System.out.println("\n " + pokemon1.getNome() + " causou  " + dano + " de dano em " + pokemon2.getNome());
+                System.out.println(" A vida de " + pokemon2.getNome() + " é igual a: " + pokemon2.getVida());
 
             }
 
 
         }
 
-
-    }
-
-    //Método de luta entre treinadores
-    public static void iniciarLuta(Treinador treinador1, Treinador treinador2) {
-        System.out.println("Está começando a luta!");
-        Time time1 = treinador1.getTime();
-        Time time2 = treinador2.getTime();
-
-        List<Pokemon> pokemons1 = time1.getPokemons();
-        List<Pokemon> pokemons2 = time2.getPokemons();
-
-        Pokemon pokemon1Time1 = pokemons1.get(0);
-        Pokemon pokemon1Time2 = pokemons2.get(0);
-
-        iniciarBatalha(pokemon1Time1, pokemon1Time2);
-
     }
 
 
-    public static void executar() {
-
-        Arena arena1 = new Arena();
-        boolean menu = true;
-        List<Treinador> treinadores = new ArrayList<>();
-        while (menu) {
-
-            int qtdeTreinador = arena1.getTreinadores().size();
-            if (qtdeTreinador < 2) {
-                menuInicial();
-                int escolhaUsuario = receberDados("Digite a opção desejada: ").nextInt();
-
-                if (escolhaUsuario == 1) {
-                    Treinador treinador = criaTreinador();
 
 
-                    //exibindo times
-                    System.out.println("Os times disponíveis são: ");
-                    System.out.println(criarTimeCanto().toString());
-                    System.out.println(criarTimeAlola().toString());
-                    System.out.println(criarTimeXy().toString());
-
-                    boolean submenu = true;
-                    while (submenu) {
-                        submenuTime();
-                        int escolhaUsuarioB = receberDados("Digite a opção desejada: ").nextInt();
-                        if (escolhaUsuarioB == 1) {
-                            Time timeEscolhido = criarTimeCanto();
-                            treinador.setTime(timeEscolhido);
-                        } else if (escolhaUsuarioB == 2) {
-                            Time timeEscolhido = criarTimeAlola();
-                            treinador.setTime(timeEscolhido);
-                        } else {
-                            Time timeEscolhido = criarTimeXy();
-                            treinador.setTime(timeEscolhido);
-                        }
-                        System.out.println(treinador);
-                        submenu = false;
-                    }
-                    arena1.adicionarTreinador(treinador);
-                    qtdeTreinador = arena1.getTreinadores().size();
-                    System.out.println("Quantidade de treinadores na Arena: " + qtdeTreinador);
-
-                } else if (escolhaUsuario == 2) {
-                    System.out.println("Até a próxima!");
-                    menu = false;
-                }
-            } else {
-                //Menu 2 quando existem pelo menos 2 treinadores na arena
-                menuComBatalha();
-                int escolhaUsuarioC = receberDados("Digite a opção desejada: ").nextInt();
-
-                if (escolhaUsuarioC == 1) {
-                    treinadores = arena1.getTreinadores();
-                    iniciarLuta(treinadores.get(0), treinadores.get(1));
-                    menu = false;
-
-                } else if (escolhaUsuarioC == 2) {
-                    System.out.println("Até a próxima Treinador!!!");
-                    menu = false;
-                }
 
 
-            }
+
+//Método de luta entre treinadores
+public static void iniciarLuta(Treinador treinador1,Treinador treinador2){
+    System.out.println("\n Está começando a luta entre o Treinador " + treinador1.getNome() + " e o Treinador " + treinador2.getNome() +"!!!");
+
+    Time time1=treinador1.getTime();
+        Time time2=treinador2.getTime();
+
+        List<Pokemon> pokemons1=time1.getPokemons();
+        List<Pokemon> pokemons2=time2.getPokemons();
+
+        Pokemon pokemon1Time1=pokemons1.get(0);
+        Pokemon pokemon1Time2=pokemons2.get(0);
+
+        iniciarBatalha(pokemon1Time1,pokemon1Time2);
+
+        }
+
+
+public static void executar(){
+
+        Arena arena1=new Arena();
+        boolean menu=true;
+        List<Treinador> treinadores=new ArrayList<>();
+        while(menu){
+
+        int qtdeTreinador=arena1.getTreinadores().size();
+        if(qtdeTreinador< 2){
+        menuInicial();
+        int escolhaUsuario=receberDados("Digite a opção desejada: ").nextInt();
+
+        if(escolhaUsuario==1){
+        Treinador treinador=criaTreinador();
+
+
+        //exibindo times
+        System.out.println("Os times disponíveis são: ");
+        System.out.println(criarTimeCanto().toString());
+        System.out.println(criarTimeAlola().toString());
+        System.out.println(criarTimeXy().toString());
+
+        boolean submenu=true;
+        while(submenu){
+        submenuTime();
+        int escolhaUsuarioB=receberDados("Digite a opção desejada: ").nextInt();
+        if(escolhaUsuarioB==1){
+        Time timeEscolhido=criarTimeCanto();
+        treinador.setTime(timeEscolhido);
+        }else if(escolhaUsuarioB==2){
+        Time timeEscolhido=criarTimeAlola();
+        treinador.setTime(timeEscolhido);
+        }else{
+        Time timeEscolhido=criarTimeXy();
+        treinador.setTime(timeEscolhido);
+        }
+        System.out.println(treinador);
+        submenu=false;
+        }
+        arena1.adicionarTreinador(treinador);
+        qtdeTreinador=arena1.getTreinadores().size();
+        System.out.println("Quantidade de treinadores na Arena: "+qtdeTreinador);
+
+        }else if(escolhaUsuario==2){
+        System.out.println("Até a próxima!");
+        menu=false;
+        }
+        }else{
+        //Menu 2 quando existem pelo menos 2 treinadores na arena
+        menuComBatalha();
+        int escolhaUsuarioC=receberDados("Digite a opção desejada: ").nextInt();
+
+        if(escolhaUsuarioC==1){
+        treinadores=arena1.getTreinadores();
+        iniciarLuta(treinadores.get(0),treinadores.get(1));
+        menu=false;
+
+        }else if(escolhaUsuarioC==2){
+        System.out.println("Até a próxima Treinador!!!");
+        menu=false;
+        }
 
 
         }
 
 
-    }
+        }
 
 
+        }
 
 
-
-}
+        }
