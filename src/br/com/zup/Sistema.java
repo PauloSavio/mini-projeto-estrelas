@@ -91,6 +91,20 @@ public class Sistema {
         System.out.println("Para escolher o time XY, digite 3");
     }
 
+    //método para sortear pokemon
+    public static Pokemon sorteiaPokemon(Treinador treinador1) {
+        Time time1 = treinador1.getTime();
+
+        List<Pokemon> pokemons1 = time1.getPokemons();
+
+        int sorteiaPokemon1 = (int)(Math.random() * 3);
+
+        Pokemon pokemon1 = pokemons1.get(sorteiaPokemon1);
+        return pokemon1;
+    }
+
+
+
     //Método para calcular dano a ser aplicado de acordo com o elemento
     public static double calcularDano(Pokemon atacante, Pokemon defensor) {
         double ataque = atacante.getAtaque();
@@ -190,9 +204,8 @@ public class Sistema {
         List<Pokemon> pokemons2 = time2.getPokemons();
 
 
-        Pokemon pokemon1Time1 = pokemons1.get(0);
-        Pokemon pokemon1Time2 = pokemons2.get(0);
-
+        Pokemon pokemon1Time1 = sorteiaPokemon(treinador1);
+        Pokemon pokemon1Time2 = sorteiaPokemon(treinador2);
 
         System.out.println("------------------------");
         System.out.println("\n Primeira batalha: " + pokemon1Time1.getNome() + " X " + pokemon1Time2.getNome());
@@ -216,8 +229,8 @@ public class Sistema {
         }
 
 
-        Pokemon pokemon2Time1 = pokemons1.get(1);
-        Pokemon pokemon2Time2 = pokemons2.get(1);
+        Pokemon pokemon2Time1 = sorteiaPokemon(treinador1);
+        Pokemon pokemon2Time2 = sorteiaPokemon(treinador2);
 
 
         System.out.println("------------------------");
@@ -241,8 +254,8 @@ public class Sistema {
             System.out.println("\n Parabéns! O " + pokemon2Time2.getNome() + " é o vencedor da batalha!");
         }
 
-        Pokemon pokemon3Time1 = pokemons1.get(2);
-        Pokemon pokemon3Time2 = pokemons2.get(2);
+        Pokemon pokemon3Time1 = sorteiaPokemon(treinador1);
+        Pokemon pokemon3Time2 = sorteiaPokemon(treinador2);
 
 
         System.out.println("------------------------");
