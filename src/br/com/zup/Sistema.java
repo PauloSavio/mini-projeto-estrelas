@@ -17,9 +17,9 @@ public class Sistema {
         Time canto = new Time();
 
         canto.setNome("\t Canto");
-        Pokemon pokemon1 = new Pokemon("Charmander", 45, 100, Tipo.FOGO);
-        Pokemon pokemon2 = new Pokemon("Squirtle", 45, 100, Tipo.AGUA);
-        Pokemon pokemon3 = new Pokemon("Sandshrew", 45, 100, Tipo.TERRA);
+        Pokemon pokemon1 = new Pokemon("Charmander", 75, 53, Tipo.FOGO);
+        Pokemon pokemon2 = new Pokemon("Squirtle", 62, 71, Tipo.AGUA);
+        Pokemon pokemon3 = new Pokemon("Sandshrew", 51, 84, Tipo.TERRA);
 
         canto.adicionarPokemon(pokemon1);
         canto.adicionarPokemon(pokemon2);
@@ -32,9 +32,9 @@ public class Sistema {
         Time alola = new Time();
 
         alola.setNome("\t Alola");
-        Pokemon pokemon1 = new Pokemon("Litten", 45, 54, Tipo.FOGO);
-        Pokemon pokemon2 = new Pokemon("Popplio", 45, 54, Tipo.AGUA);
-        Pokemon pokemon3 = new Pokemon("Diglet", 45, 54, Tipo.TERRA);
+        Pokemon pokemon1 = new Pokemon("Litten", 70, 58, Tipo.FOGO);
+        Pokemon pokemon2 = new Pokemon("Popplio", 68, 43, Tipo.AGUA);
+        Pokemon pokemon3 = new Pokemon("Diglet", 57, 78, Tipo.TERRA);
 
         alola.adicionarPokemon(pokemon1);
         alola.adicionarPokemon(pokemon2);
@@ -49,9 +49,9 @@ public class Sistema {
         xy.setNome("\t XY");
 
         xy.setNome("\t XY");
-        Pokemon pokemon1 = new Pokemon("Fennekin", 45, 54, Tipo.FOGO);
-        Pokemon pokemon2 = new Pokemon("Froakie", 45, 54, Tipo.AGUA);
-        Pokemon pokemon3 = new Pokemon("Bunnelby", 45, 54, Tipo.TERRA);
+        Pokemon pokemon1 = new Pokemon("Fennekin", 76, 64, Tipo.FOGO);
+        Pokemon pokemon2 = new Pokemon("Froakie", 61, 51, Tipo.AGUA);
+        Pokemon pokemon3 = new Pokemon("Bunnelby", 56, 81, Tipo.TERRA);
 
         xy.adicionarPokemon(pokemon1);
         xy.adicionarPokemon(pokemon2);
