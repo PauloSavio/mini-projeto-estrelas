@@ -5,6 +5,7 @@ public class Pokemon {
     private double ataque;
     private double vida;
     private Tipo elemento;
+    private boolean exaustao = false;
 
     public Pokemon() {
     }
@@ -46,6 +47,14 @@ public class Pokemon {
 
     public void setElemento(Tipo elemento) {
         this.elemento = elemento;
+    }
+
+    public boolean isExaustao() {
+        return exaustao;
+    }
+
+    public void setExaustao(boolean exaustao) {
+        this.exaustao = exaustao;
     }
 
     @Override

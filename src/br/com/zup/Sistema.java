@@ -100,6 +100,12 @@ public class Sistema {
         int sorteiaPokemon1 = (int)(Math.random() * 3);
 
         Pokemon pokemon1 = pokemons1.get(sorteiaPokemon1);
+        //para evitar que um pokemon que já tenha batalhado, batalhe de novo
+        while (pokemon1.isExaustao()) {
+            int reSorteiaPokemon1 = (int) (Math.random() * 3);
+            pokemon1 = pokemons1.get(reSorteiaPokemon1);
+        }
+
         return pokemon1;
     }
 
