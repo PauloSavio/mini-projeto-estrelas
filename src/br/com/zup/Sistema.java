@@ -163,8 +163,6 @@ public class Sistema {
         double iniciativa2 = Math.random();
 
 
-        System.out.println("Primeira batalha");
-
         while (pokemon1.getVida() > 0 & pokemon2.getVida() > 0) {
 
             if (iniciativa1 > iniciativa2) {
@@ -174,10 +172,10 @@ public class Sistema {
                 System.out.println("\n " + pokemon1.getNome() + " causou  " + dano + " de dano em " + pokemon2.getNome());
                 System.out.println(" A vida de " + pokemon2.getNome() + " é igual a: " + pokemon2.getVida());
 
-                dano = calcularDano(pokemon2, pokemon1);
-                vida = receberDano(dano, pokemon1);
-                pokemon1.setVida(vida);
-                System.out.println("\n " + pokemon2.getNome() + " causou  " + dano + " de dano em " + pokemon1.getNome());
+                double dano2 = calcularDano(pokemon2, pokemon1);
+                double vida2 = receberDano(dano2, pokemon1);
+                pokemon1.setVida(vida2);
+                System.out.println("\n " + pokemon2.getNome() + " causou  " + dano2 + " de dano em " + pokemon1.getNome());
                 System.out.println(" A vida de " + pokemon1.getNome() + " é igual a: " + pokemon1.getVida());
             } else {
                 double dano = calcularDano(pokemon2, pokemon1);
@@ -186,18 +184,21 @@ public class Sistema {
                 System.out.println("\n " + pokemon2.getNome() + " causou  " + dano + " de dano em " + pokemon1.getNome());
                 System.out.println(" A vida de " + pokemon1.getNome() + " é igual a: " + pokemon1.getVida());
 
-                dano = calcularDano(pokemon1, pokemon2);
-                vida = receberDano(dano, pokemon2);
-                pokemon2.setVida(vida);
-                System.out.println("\n " + pokemon1.getNome() + " causou  " + dano + " de dano em " + pokemon2.getNome());
+                double dano2 = calcularDano(pokemon1, pokemon2);
+                double vida2 = receberDano(dano2, pokemon2);
+                pokemon2.setVida(vida2);
+                System.out.println("\n " + pokemon1.getNome() + " causou  " + dano2 + " de dano em " + pokemon2.getNome());
                 System.out.println(" A vida de " + pokemon2.getNome() + " é igual a: " + pokemon2.getVida());
 
             }
 
 
         }
+        pokemon1.setExaustao(true);
+        pokemon2.setExaustao(true);
 
     }
+
 
 
     //Método de luta entre treinadores
