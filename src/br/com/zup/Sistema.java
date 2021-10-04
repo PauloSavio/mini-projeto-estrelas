@@ -182,18 +182,21 @@ public class Sistema {
 
     //Método de luta entre treinadores
     public static void iniciarLuta(Treinador treinador1, Treinador treinador2) {
-        System.out.println("\n Está começando a luta entre o Treinador " + treinador1.getNome() + " e o Treinador " + treinador2.getNome() + "!!!");
-
+        System.out.println("\n Está começando a luta entre o Treinador " + treinador1.getNome() + " e o Treinador " + treinador2.getNome() +"!!!");
         Time time1 = treinador1.getTime();
         Time time2 = treinador2.getTime();
 
         List<Pokemon> pokemons1 = time1.getPokemons();
         List<Pokemon> pokemons2 = time2.getPokemons();
-        //primeira batalha
+
+
         Pokemon pokemon1Time1 = pokemons1.get(0);
         Pokemon pokemon1Time2 = pokemons2.get(0);
+
+
         System.out.println("------------------------");
-        System.out.println("Primeira batalha: " + pokemon1Time1.getNome() + " X " + pokemon1Time2.getNome());
+        System.out.println("\n Primeira batalha: " + pokemon1Time1.getNome() + " X " + pokemon1Time2.getNome());
+
 
         iniciarBatalha(pokemon1Time1, pokemon1Time2);
 
@@ -201,15 +204,25 @@ public class Sistema {
         double vidaPokemon2 = pokemon1Time2.getVida();
 
         if (vidaPokemon1 > vidaPokemon2) {
+            int vitorias = treinador1.getVitorias();
+            int atualizaVitoria = vitorias + 1;
+            treinador1.setVitorias(atualizaVitoria);
             System.out.println("\n Parabéns! O " + pokemon1Time1.getNome() + " é o vencedor da batalha!");
         } else {
+            int vitorias = treinador2.getVitorias();
+            int atualizaVitoria = vitorias + 1;
+            treinador2.setVitorias(atualizaVitoria);
             System.out.println("\n Parabéns! O " + pokemon1Time2.getNome() + " é o vencedor da batalha!");
         }
-        //Segunda batalha
+
+
         Pokemon pokemon2Time1 = pokemons1.get(1);
         Pokemon pokemon2Time2 = pokemons2.get(1);
+
+
         System.out.println("------------------------");
         System.out.println("Segunda batalha: " + pokemon2Time1.getNome() + " X " + pokemon2Time2.getNome());
+
 
         iniciarBatalha(pokemon2Time1, pokemon2Time2);
 
@@ -217,16 +230,24 @@ public class Sistema {
         double vidaPokemon2Time2 = pokemon2Time2.getVida();
 
         if (vidaPokemon2Time1 > vidaPokemon2Time2) {
+            int vitorias = treinador1.getVitorias();
+            int atualizaVitoria = vitorias + 1;
+            treinador1.setVitorias(atualizaVitoria);
             System.out.println("\n Parabéns! O " + pokemon2Time1.getNome() + " é o vencedor da batalha!");
         } else {
+            int vitorias = treinador2.getVitorias();
+            int atualizaVitoria = vitorias + 1;
+            treinador2.setVitorias(atualizaVitoria);
             System.out.println("\n Parabéns! O " + pokemon2Time2.getNome() + " é o vencedor da batalha!");
         }
 
-
         Pokemon pokemon3Time1 = pokemons1.get(2);
         Pokemon pokemon3Time2 = pokemons2.get(2);
+
+
         System.out.println("------------------------");
         System.out.println("Terceira batalha: " + pokemon3Time1.getNome() + " X " + pokemon3Time2.getNome());
+
 
         iniciarBatalha(pokemon3Time1, pokemon3Time2);
 
@@ -234,13 +255,32 @@ public class Sistema {
         double vidaPokemon3Time2 = pokemon3Time2.getVida();
 
         if (vidaPokemon3Time1 > vidaPokemon3Time2) {
+            int vitorias = treinador1.getVitorias();
+            int atualizaVitoria = vitorias + 1;
+            treinador1.setVitorias(atualizaVitoria);
             System.out.println("\n Parabéns! O " + pokemon3Time1.getNome() + " é o vencedor da batalha!");
         } else {
+            int vitorias = treinador2.getVitorias();
+            int atualizaVitoria = vitorias + 1;
+            treinador2.setVitorias(atualizaVitoria);
             System.out.println("\n Parabéns! O " + pokemon3Time2.getNome() + " é o vencedor da batalha!");
         }
 
 
+        //mostrando o treinador vencedor da batalha
+        int vitoriasTreinador1 = treinador1.getVitorias();
+        int vitoriasTreinador2 = treinador2.getVitorias();
+
+        System.out.println("\n Vitórias de " + treinador1.getNome() + ": " + vitoriasTreinador1);
+        System.out.println(" Vitórias de " + treinador2.getNome() + ": " + vitoriasTreinador2);
+        if (vitoriasTreinador1 > vitoriasTreinador2) {
+            System.out.println("\n Fantástico!!! O Treinador " + treinador1.getNome() + " da cidade de " + treinador1.getCidade() + " é o vencedor!!!");
+        } else {
+            System.out.println("\n Fantástico!!! O Treinador " + treinador2.getNome() + " da cidade de " + treinador2.getCidade() + " é o vencedor!!!");
+        }
+
     }
+
 
 
     public static void executar() {

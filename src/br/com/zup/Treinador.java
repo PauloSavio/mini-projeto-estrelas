@@ -7,6 +7,7 @@ public class Treinador {
     private String nome;
     private String cidade;
     private Time timeEscolhido;
+    private int vitorias;
 
     public Treinador() {
     }
@@ -39,6 +40,15 @@ public class Treinador {
     public void setTime(Time times) {
         this.timeEscolhido = times;
     }
+
+    public int getVitorias() {
+        return vitorias;
+    }
+
+    public void setVitorias(int vitorias) {
+        this.vitorias = vitorias;
+    }
+
 
     @Override
     public String toString() {
